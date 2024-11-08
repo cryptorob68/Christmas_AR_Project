@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Project Title</title>
+    <!-- Load A-Frame 1.2.0 -->
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <!-- Load AR.js library for augmented reality support -->
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.3.2/aframe/build/aframe-ar.min.js"></script>
+</head>
+<body style="margin: 0; overflow: hidden;">
+    <!-- AR.js Scene -->
+    <a-scene embedded arjs="sourceType: webcam;">
+        <!-- AR Marker and 3D Model -->
+      <a-marker type="pattern" url="christmas_marker.patt" emitevents="true">
+    <a-box position="0 0 0" material="color: red;" scale="2 2 2"></a-box>
+</a-marker>
+
+<script>
+    document.querySelector('a-marker').addEventListener('markerFound', () => {
+        console.log('Marker detected!');
+    });
+</script>
+
+        <!-- Camera Entity -->
+        <a-entity camera></a-entity>
+    </a-scene>
+</body>
+</html>
